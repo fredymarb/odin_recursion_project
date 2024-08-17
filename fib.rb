@@ -13,4 +13,12 @@ def fib_iterate(num)
   result
 end
 
+def fib_recursive(num, result = [0, 1])
+  return result[0, num] if result.length >= num
+
+  result << result[-1] + result[-2]
+  fib_recursive(num, result)
+end
+
 p fib_iterate(8) # => [0, 1, 1, 2, 3, 5, 8, 13]
+p fib_recursive(8) # => [0, 1, 1, 2, 3, 5, 8, 13]
